@@ -1,0 +1,46 @@
+<h4 class="text-center font-weight-bold mb-4">Cadastrar conta</h4>
+
+<form [formGroup]="signupForm" class="form mt-3" (submit)="signup()">
+
+	<div class="form-group">
+		<input formControlName="email" class="form-control" type="email" placeholder="E-mail" (keyup)="emailAlreadyInUse = false">
+		<small
+			*ngIf="signupForm.get('email').errors?.required"
+			class="text-danger d-block mt-2">
+			E-mail é obrigatório.
+		</small>
+		<small
+			*ngIf="signupForm.get('email').errors?.email" 
+			class="text-danger d-block mt-2">
+			E-mail inválido.
+		</small>
+		<small
+			*ngIf="emailAlreadyInUse"
+			class="text-danger d-block mt-2">
+			E-mail já está cadastrado.
+		</small>
+	</div>
+
+	<div class="form-group">
+		<input formControlName="password" class="form-control" type="password" placeholder="Senha">
+		<small
+			*ngIf="signupForm.get('password').errors?.required"
+			class="text-danger d-block mt-2">
+			Senha é obrigatória.
+		</small>
+		<small
+			*ngIf="signupForm.get('password').errors?.minlength"
+			class="text-danger d-block mt-2">
+			No mínimo 8 caracteres.
+		</small>
+		<small
+			*ngIf="signupForm.get('password').errors?.maxlength"
+			class="text-danger d-block mt-2">
+			No máximo 14 caracteres.
+		</small>
+	</div>
+
+	<button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary btn-block font-weight-bold">Cadastrar</button>
+	
+	<p class="mt-4">Já tem uma conta? <a class="text-white font-weight-bold" [routerLink]="['']">Acessar</a></p>
+</form>

@@ -1,0 +1,25 @@
+<h4 class="text-center font-weight-bold mb-4">Login</h4>
+
+<form [formGroup]="signinForm" class="form mt-3" (submit)="signin()">
+	<p class="text-center">Ainda não tem uma conta? <a class="text-white font-weight-bold" [routerLink]="['signup']">Crie a sua!</a></p>
+
+	<div class="form-group">
+		<input formControlName="email" type="email" class="form-control" placeholder="E-mail" autofocus>
+		<small
+			*ngIf="signinForm.touched && signinForm.get('email').errors?.required"
+			class="text-danger d-block mt-2">
+			E-mail é obrigatório.
+		</small>
+	</div>
+
+	<div class="form-group">
+		<input formControlName="password" type="password" class="form-control" placeholder="Senha">
+		<small
+			*ngIf="signinForm.touched && signinForm.get('password').errors?.required"
+			class="text-danger d-block mt-2">
+			Senha é obrigatória.
+		</small>
+	</div>
+
+	<button type="submit" [disabled]="signinForm.invalid" class="btn btn-primary btn-block font-weight-bold">Entrar</button>
+</form>
