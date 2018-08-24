@@ -1,12 +1,8 @@
 <div class="container-fluid">
-	<form [formGroup]="contactForm" class="form mt-3" (submit)="save()">
+	<form [formGroup]="contatoForm" class="form mt-3" (submit)="salvarContato()">
 
 		<div class="form-group">
-			<input formControlName="firstName" class="form-control" type="text" placeholder="Nome">
-		</div>
-
-		<div class="form-group">
-			<input formControlName="lastName" class="form-control" type="text" placeholder="Sobrenome">
+			<input formControlName="nome" class="form-control" type="text" placeholder="Nome">
 		</div>
 
 		<div class="form-group">
@@ -14,22 +10,44 @@
 		</div>
 	
 		<div class="form-group">
-			<input formControlName="phone" class="form-control" type="text" placeholder="Telefone">
+			<input formControlName="telefone" class="form-control" type="text" placeholder="Telefone">
 		</div>
 
 		<div class="form-group">
-			<input formControlName="clients" class="form-control" type="num" placeholder="Quantidade de clientes">
+			<input formControlName="endereco" class="form-control" type="text" placeholder="Endereço">
 		</div>
 
 		<div class="form-group">
-			<input formControlName="revenue" class="form-control" type="num" placeholder="Faturamento médio dos clientes">
+			<input formControlName="numeroDeClientes" class="form-control" type="number" placeholder="Quantidade de clientes">
 		</div>
 
 		<div class="form-group">
-			<textarea formControlName="obs" class="form-control" rows="3" placeholder="Observações"></textarea>
+			<input formControlName="faturamentoMedio" class="form-control" type="num" placeholder="Faturamento médio dos clientes">
+		</div>
+
+		<div class="form-group">
+			<select formControlName="classificacao" class="form-control">
+				<option value="Potencial indefinido">Potencial indefinido</option>
+				<option value="Pouco potencial">Pouco potencial</option>
+				<option value="Muito potencial">Muito potencial</option>
+			  </select>
+		</div>
+
+		<div class="form-group">
+			<select formControlName="status" class="form-control">
+				<option value="oportunidade">Oportunidade</option>
+				<option value="demonstracao">Demonstração</option>
+				<option value="negociacao">Negociação</option>
+				<option value="fechamento">Fechamento</option>
+				<option value="descartado">Descartado</option>
+			  </select>
+		</div>
+
+		<div class="form-group">
+			<textarea formControlName="observacao" class="form-control" rows="3" placeholder="Observações"></textarea>
 		</div>
 	
-		<button type="submit" class="btn btn-primary btn-block font-weight-bold">Salvar</button>
+		<button type="submit" [disabled]="contatoForm.invalid" class="btn btn-primary btn-block font-weight-bold">Salvar</button>
 		
 	</form>
 </div>

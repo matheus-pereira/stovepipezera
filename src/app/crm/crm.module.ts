@@ -9,6 +9,8 @@ import { ContatosModule } from "./contatos/contatos.module";
 import { PipelineModule } from "./pipeline/pipeline.module";
 import { DashboardsModule } from "./dashboards/dashboards.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { ContatoService } from "./contatos/contato/contato.service";
 
 @NgModule({
     declarations: [
@@ -18,6 +20,7 @@ import { ReactiveFormsModule } from "@angular/forms";
         CommonModule,
         AngularFireAuthModule,
         AngularFirestoreModule,
+        RouterModule,
         ReactiveFormsModule,
         ContatosModule,
         PipelineModule,
@@ -25,9 +28,8 @@ import { ReactiveFormsModule } from "@angular/forms";
         CrmRoutingModule
     ],
     providers: [
-        AuthService
+        AuthService,
+        ContatoService
     ]
 })
-export class CrmModule {
-
-}
+export class CrmModule { }

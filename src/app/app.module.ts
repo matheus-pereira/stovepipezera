@@ -15,6 +15,7 @@ import { LoggedGuard } from './auth/logged.guard';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
     AppRoutingModule
   ],
   providers: [

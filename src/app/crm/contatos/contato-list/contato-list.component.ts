@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContatoService } from '../contato/contato.service';
+import { Contato } from '../contato/contato';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contato-list',
@@ -7,17 +9,20 @@ import { ContatoService } from '../contato/contato.service';
 })
 export class ContatoListComponent implements OnInit {
 
-  contacts: any;
+  contatos: any[] = [];
 
   constructor(
-    private contactService: ContatoService
+    private contatoService: ContatoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    // this.contactService.list()
-    //   .subscribe(contacts => {
-    //     this.contacts = contacts;
-    //   });
+    this.contatoService.listarContatos()
+      .subscribe(contatos =>  this.contatos = contatos);
+  }
+
+  editarContato(contatoId) {
+    this.router.navigate(['crm', 'contatos', contatoId]);
   }
   
 }

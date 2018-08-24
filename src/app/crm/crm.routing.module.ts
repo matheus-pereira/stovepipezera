@@ -4,13 +4,14 @@ import { CrmComponent } from './crm.component';
 import { PipelineComponent } from './pipeline/pipeline.component';
 import { ContatoListComponent } from './contatos/contato-list/contato-list.component';
 import { ContatoFormComponent } from './contatos/contato-form/contato-form.component';
-import { LigacoesComponent } from './pipeline/ligacoes/ligacoes.component';
 import { DashboardsComponent } from './dashboards/dashboards.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes = [
   {
     path: '',
     component: CrmComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -20,10 +21,6 @@ const routes = [
       {
         path: 'pipeline',
         component: PipelineComponent
-      },
-      {
-        path: 'pipeline/contato/:contactId',
-        component: LigacoesComponent
       },
       {
         path: 'contatos',

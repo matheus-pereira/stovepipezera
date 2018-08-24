@@ -1,1 +1,58 @@
-teste do caralho filho da puta
+<div class="row">
+    <div class="col-md-3 mt-2">
+        <div class="card h-100">
+            <h5 class="card-header">Oportunidade</h5>
+            <ul class="list-group list-group-flush h-100" [dragula]="'CONTATO'" pipe="oportunidade">
+                <li class="list-group-item"
+                    *ngFor="let contato of contatos | filterByStatus:'oportunidade'"
+                    [id]="contato.id">
+                    <b>{{ contato.nome }}</b>
+                    <br>{{ contato.email }}
+                    <br>{{ contato.telefone }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 mt-2">
+        <div class="card h-100">
+            <h5 class="card-header">Demonstração</h5>
+            <ul class="list-group list-group-flush h-100" [dragula]="'CONTATO'" pipe="demonstracao">
+                <a class="list-group-item"
+                *ngFor="let contato of contatos | filterByStatus:'demonstracao'"
+                [id]="contato.id">
+                    <b>{{ contato.nome }}</b>
+                    <br>{{ contato.email }}
+                    <br>{{ contato.telefone }}
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 mt-2">
+        <div class="card h-100">
+            <h5 class="card-header">Negociação</h5>
+            <ul class="list-group list-group-flush h-100" [dragula]="'CONTATO'" pipe="negociacao">
+                <a class="list-group-item"
+                    *ngFor="let contato of contatos | filterByStatus:'negociacao'"
+                    [id]="contato.id">
+                    <b>{{ contato.nome }}</b>
+                    <br>{{ contato.email }}
+                    <br>{{ contato.telefone }}
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 mt-2">
+        <div class="card h-100">
+            <h5 class="card-header">Fechamento</h5>
+            <ul class="list-group list-group-flush h-100" [dragula]="'CONTATO'" pipe="fechamento">
+                <a class="list-group-item"
+                    *ngFor="let contato of contatos | filterByStatus:'fechamento'"
+                    [id]="contato.id">
+                    <b>{{ contato.nome }}</b>
+                    <br>{{ contato.email }}
+                    <br>{{ contato.telefone }}
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>

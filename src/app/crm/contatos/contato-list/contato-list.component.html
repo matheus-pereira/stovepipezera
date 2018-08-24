@@ -1,21 +1,21 @@
-<a [routerLink]="['new']"class="btn btn-outline btn-lg btn-primary m-2">Cadastrar novo contato</a>
+<a [routerLink]="['new']" class="btn btn-lg btn-primary my-2">Cadastrar novo contato</a>
 
 <div class="table-responsive">
 	<table class="table">
 		<thead>
 			<tr>
 				<th scope="col">Nome</th>
-				<th scope="col">Sobrenome</th>
 				<th scope="col">E-mail</th>
 				<th scope="col">Telefone</th>
+				<th scope="col">Endereço</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let contact of contacts">
-				<td>{{ contact.firstName }}</td>
-				<td>{{ contact.lastName }}</td>
-				<td>{{ contact.email }}</td>
-				<td>{{ contact.phone }}</td>
+			<tr *ngFor="let contato of contatos" (click)="editarContato(contato.id)">
+				<td>{{ contato.nome }}</td>
+				<td>{{ contato.email }}</td>
+				<td>{{ contato.telefone }}</td>
+				<td>{{ contato.endereco }}</td>
 			</tr>
 		</tbody>
 	</table>

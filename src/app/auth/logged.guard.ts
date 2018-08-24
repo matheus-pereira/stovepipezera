@@ -11,7 +11,6 @@ export class LoggedGuard implements CanActivate {
   ) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log('passando pelo LoggedGuard');
     if (this.userService.isLogged()) {
       this.router.navigate(['crm']);
       return false;
